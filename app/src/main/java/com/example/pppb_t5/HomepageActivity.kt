@@ -1,5 +1,7 @@
 package com.example.pppb_t5
 
+// impor kelas yang diperlukan yaitu Activity, Intent, AppCompatActivity, ActivityResultContracts
+
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,9 +12,11 @@ import com.example.pppb_t5.RegisterActivity.Companion.EXTRA_USERNAME
 import com.example.pppb_t5.RegisterActivity.Companion.EXTRA_EMAIL
 import com.example.pppb_t5.RegisterActivity.Companion.EXTRA_PHONE
 
+// deklarasi kelas HomepageActivity, yang merupakan turunan dari AppCompatActivity
 class HomepageActivity : AppCompatActivity() {
-
+//   Membuat Binding
     private lateinit var binding: ActivityHomepageBinding
+//   Membuat laucher untuk menghandle aktivitas
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         result ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -23,15 +27,18 @@ class HomepageActivity : AppCompatActivity() {
         }
     }
 
+//    Methods oncreate yang dipanggil ketika aktivitas HomepageActivity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomepageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+//    Mendapatkan data yang dikirim melalui intent
         var username = intent.getStringExtra(EXTRA_USERNAME)
         var email = intent.getStringExtra(EXTRA_EMAIL)
         var phone = intent.getStringExtra(EXTRA_PHONE)
 
+//    megatur tampilan output data yang diterima
         with(binding) {
             welcomeTxt.text = getString(R.string.welcome, username, email, phone)
 

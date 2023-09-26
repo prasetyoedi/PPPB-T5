@@ -24,14 +24,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/homepage_txt"
         android:textSize="16sp"
-        android:text="Default text" />
+        android:text="Output text" />
 
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/logout_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rect_bg"
+        android:background="@drawable/bg_btn"
         android:backgroundTint="@color/blue"
         android:textColor="@color/white"
         android:textAllCaps="false"
